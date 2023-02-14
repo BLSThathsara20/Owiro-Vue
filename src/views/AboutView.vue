@@ -9,12 +9,12 @@
     <section class="who-we-are">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-12 col-md-6 col-lg-6">
+          <div class="col-12 col-md-8 col-lg-8">
             <div class="right-bg">
               <img class="img-fluid" src="../assets/image/about/About-us-img-1.jpg" alt="image">
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-6">
+          <div class="col-12 col-md-4 col-lg-4">
             <div class="wrapper">
               <div class="title">
               <span>WHO WE ARE</span>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-12 col-md-6 col-lg-6">
             <div class="right-bg">
-              <img class="img-fluid" src="../assets/image/about/About-us-img-1.jpg" alt="image">
+              <img class="img-fluid" src="../assets/image/about/About-us-img-2.jpg" alt="image">
             </div>
           </div>
         </div>
@@ -220,6 +220,7 @@ $font-2 : 'Heebo', sans-serif;
   .brands{
     position: relative;
     padding-top: 80px;
+    padding-bottom: 140px;
     //Left Side
     .wrapper{
       max-width: 360px;
