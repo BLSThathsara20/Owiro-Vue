@@ -22,6 +22,13 @@ const routes = [
     }
   },
   {
+    path: '/blog/:id',
+    name: 'BlogPost',
+    component: function () {
+      return import('../components/SingleBlog.vue')
+    }
+  },
+  {
     path: '/clients',
     name: 'Clients',
     component: function () {

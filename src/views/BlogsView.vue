@@ -5,10 +5,12 @@
         <div class="row row-cols-1 row-cols-md-1 g-4 pb-5">
           <div class="col" v-for="(blog, index) in paginatedBlogs" :key="index">
             <div class="card">
-              <img :src="blog.image" class="card-img-top" alt="...">
+              <img :src="blog.image" class="card-img-top img-fluid" alt="...">
               <div class="card-body">
-                <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5>
+                  <router-link :to="`/blog/${(currentPage - 1) * itemsPerPage + index + 1}`"><span>{{ blog.title }}</span></router-link>
+              </h5>
+                <p class="card-text">{{ blog.content }}</p>
               </div>
             </div>
           </div>
@@ -44,34 +46,42 @@ export default {
       blogs: [
         {
           title: 'Blog 01',
+          content: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 02',
+          content: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 03',
+          content: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 04',
+          content: 'Blog 01Blog 01Blog 01Blog 01Blog 01Blog 01Blog 01',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 05',
+          content: 'Blog 01Blog 01Blog 01Blog 01Blog 01Blog 01Blog 01',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 06',
+          content: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 07',
+          content: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
         {
           title: 'Blog 08',
+          content: '8 This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
           image: require('@/assets/image/blogs/bl-gallery-img6.jpg'),
         },
       ],

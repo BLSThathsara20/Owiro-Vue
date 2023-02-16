@@ -110,6 +110,11 @@ $font-2 : 'Heebo', sans-serif;
     font-weight: 600;
     }
   }
+
+  //Style Team Members Section
+  .members{
+    padding-bottom: 100px;
+  }
 }
 
 </style>

@@ -1,10 +1,14 @@
 <template>
   <div class="home">
+    <div class="gradient-coner"></div>
+    <div class="gradient-coner-left"></div>
     <div id="line-navigation"></div>
     <div class="keep-scroll">
       <span id="line-navigation-keep-scroll"></span>
       <span>Keep Scrolling</span>
     </div>
+
+    <!-- Add Hero Slider -->
     <HeroSlider/>
     
     <section class="who-we-are">
@@ -68,6 +72,10 @@
           </div>
         </div>
     </div>
+    <div class="section-how-it-works">
+        <span id="line-navigation-who-we"></span>
+        <span>Read Our News</span>
+      </div>
     </section>
 
     <!-- Services Section -->
@@ -76,6 +84,7 @@
         <div class="row">
           <div class="col-12 col-md-4 col-lg-4" v-for="(service, index) in services" v-bind:key="index">
             <div class="content-wrapper">
+              <span class="bg-text">{{service.number}}</span>
               <h4 class="title">
                 <a href="#">{{service.name}}</a>
               </h4>
@@ -145,6 +154,10 @@
           </div>
         </div>
       </div>
+      <div class="section-partners-mark">
+        <span id="line-navigation-who-we"></span>
+        <span>Meet Our Clients</span>
+      </div>
     </section>
   </div>
 </template>
@@ -207,14 +220,17 @@ export default {
       {
         name: 'Manage your data efficiently', 
         description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '01',
       },
       {
         name: 'Built with neat utility features', 
         description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '02',
       },
       {
         name: 'Futuristic interactive designs', 
         description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '03',
       },
     ],
     partners: [
@@ -254,7 +270,77 @@ $color-1: #000;
 $font-1 : 'Syne', sans-serif;
 $font-2 : 'Heebo', sans-serif;
 
+
+//Style Gradient Coner
+.gradient-coner:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 40%;
+    height: 50%;
+    border-bottom-left-radius: 80%;
+    background: linear-gradient(-45deg,  #7bdef250 20%, #f2b5d485 100% );
+    transform: translate3d(0px, 20px, 0) scale(1);
+    filter: blur(70px);
+    opacity: var(0.3);
+    transition: opacity 0.3s;
+    overflow: hidden;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.gradient-coner::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: inherit;
+    border-radius: inherit;
+    overflow: hidden;
+}
+//Style Gradient Coner Left
+.gradient-coner-left:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 30%;
+    height: 60%;
+    border-top-right-radius: 80%;
+    background: linear-gradient(-45deg,  #7bdef250 20%, #f2b5d485 100% );
+    transform: translate3d(0px, 20px, 0) scale(1);
+    filter: blur(120px);
+    opacity: var(0.2);
+    transition: opacity 0.3s;
+    overflow: hidden;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.gradient-coner-left::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+    overflow: hidden;
+}
+        
+
   #line-navigation{
+    display: block;
     position: fixed;
     top: 0;
     left: 40px;
@@ -262,6 +348,10 @@ $font-2 : 'Heebo', sans-serif;
     height: 100%;
     background: $slider-line;
     z-index: 99;
+
+    @media only screen and (max-width: 768px){
+      display: none;
+    }
   }
   .keep-scroll{
     position: absolute;
@@ -286,6 +376,7 @@ $font-2 : 'Heebo', sans-serif;
   .who-we-are{
     position: relative;
     padding-top: 80px;
+    padding-bottom: 80px;
     //Left Side
     .wrapper{
       max-width: 360px;
@@ -309,6 +400,13 @@ $font-2 : 'Heebo', sans-serif;
         line-height: 1.1em;
 
         margin-top: 10px;
+
+        @media only screen and (max-width: 786px){
+            font-size: 32px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 22px;
+        }
       }
     }
     .content{
@@ -318,6 +416,13 @@ $font-2 : 'Heebo', sans-serif;
       p{
         font-family: $font-2;
         font-size: 18px;
+
+        @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 14px;
+        }
       }
     }
     }
@@ -353,6 +458,10 @@ $font-2 : 'Heebo', sans-serif;
       display: block;
       text-align: left;
       color: $color-1;
+
+      @media only screen and (max-width: 786px){
+            font-size: 12px;
+        }
     }
     }
   }
@@ -361,6 +470,7 @@ $font-2 : 'Heebo', sans-serif;
   .how-it-works{
     padding-top: 80px;
     padding-bottom: 80px;
+    position: relative;
     .img-wrapper{
       overflow: hidden;
       img{
@@ -388,6 +498,13 @@ $font-2 : 'Heebo', sans-serif;
           font-size: 50px;
           line-height: 1.1em;
           font-weight: 600;
+
+          @media only screen and (max-width: 786px){
+            font-size: 34px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 26px;
+        }
         }
       }
     }
@@ -461,19 +578,88 @@ $font-2 : 'Heebo', sans-serif;
           }
         }
       }
+
+      //Style Section Mark
+      .section-how-it-works{
+      position: absolute;
+      left: 40px;
+      bottom: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+
+      #line-navigation-who-we{
+        border-left: 1px solid $color-1;
+        height: 60px;
+      }
+      span{
+      padding-left: 15px;
+      font-size: 15px;
+      line-height: 16px;
+      max-width: 82px;
+      display: block;
+      text-align: left;
+      color: $color-1;
+
+      @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 12px;
+        }
+    }
+    }
   }
 
   //Style Services Section
   .services{
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 160px;
+    padding-bottom: 120px;
     .content-wrapper{
+      position: relative;
+
+      .bg-text{
+        display: inline-block;
+        background: linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+        background: -moz-linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 230px;
+        letter-spacing: 0;
+        line-height: 1.2em;
+        font-weight: 400;
+        font-family: Syne,sans-serif;
+        z-index: -2;
+        position: absolute;
+        left: -68px;
+        top: -53%;
+        opacity: .2;
+
+        @media only screen and (max-width: 786px){
+            font-size: 180px;
+            left: 0;
+            top: -35%;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 120px;
+            left: 0;
+            top: -35%;
+        }
+      }
       .title{
         a{
           text-decoration: none;
           color: $color-1;
           font-weight: 600;
           font-size: 35px;
+
+          @media only screen and (max-width: 786px){
+            font-size: 28px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 22px;
+        }
         }
       }
 
@@ -481,17 +667,81 @@ $font-2 : 'Heebo', sans-serif;
         font-size: 17px;
         margin: 16px 60px 0 0;
         font-family: $font-2;
+
+        @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 13px;
+        }
       }
 
       .action{
         padding-top: 15px;
 
         a{
+          cursor: pointer;
           text-decoration: none;
           color: $color-1;
           font-size: 16px;
           letter-spacing: 1.5px;
           text-transform: uppercase;
+
+          color: #000;
+          border: 0;
+          padding: 0 0 0 95px !important;
+          letter-spacing: .2em;
+          background-color: transparent;
+          transition: all .4s cubic-bezier(0,.68,.58,1);
+
+          font-family: Archivo,sans-serif;
+          font-size: 12px;
+          line-height: 1.33em;
+          letter-spacing: .2em;
+          font-weight: 500;
+          position: relative;
+          display: inline-flex;
+          vertical-align: middle;
+          width: auto;
+          margin: 0;
+          text-decoration: none;
+          text-transform: uppercase;
+          border-radius: 0;
+          outline: 0;
+          transition: color .2s ease-out,background-color .2s ease-out,border-color .2s ease-out;
+          padding: 17px 48px 15px 50px;
+          transition: all 0.5s;
+
+          @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+
+          &::before{
+            content: '';
+            display: table;
+            table-layout: fixed;
+          }
+
+            &::after{
+
+              content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 80px;
+                height: 1px;
+                background-color: #57b8e0;
+                transition: width .4s cubic-bezier(0,.68,.58,1);
+            }
+
+            &:hover{
+              padding-left: 0px !important;
+              &::after{
+
+              content: '';
+                width: 0;
+              } 
+            }
         }
       }
     }
@@ -541,6 +791,13 @@ $font-2 : 'Heebo', sans-serif;
           background-position: left;
           transition: background-position .4s ease;
 
+          @media only screen and (max-width: 786px){
+            font-size: 34px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 22px;
+        }
+
         }
       }
     }
@@ -550,7 +807,9 @@ $font-2 : 'Heebo', sans-serif;
   .parters{
     padding-top: 80px;
     padding-bottom: 80px;
+    position: relative;
     .wrapper{
+      padding-bottom: 80px;
       span{
         font-size: 13px;
         letter-spacing: 4px;
@@ -566,11 +825,22 @@ $font-2 : 'Heebo', sans-serif;
         color: $color-1;
         line-height: 1.2;
         font-weight: 600;
+
+        @media only screen and (max-width: 786px){
+            font-size: 34px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 22px;
+        }
       }
       p{
         margin-top: 16px;
         font-size: 16px;
         font-family: $font-2;
+
+        @media only screen and (max-width: 786px){
+            font-size: 13px;
+        }
       }
       .action{
         padding-top: 30px;
@@ -619,9 +889,37 @@ $font-2 : 'Heebo', sans-serif;
           letter-spacing: 1.3;
           color: $color-1;
           font-size: 14px;
+
+          @media only screen and (max-width: 786px){
+            font-size: 13px;
+        }
           
         }
       }
+    }
+
+    //Style Section Mark
+    .section-partners-mark{
+      position: absolute;
+      left: 40px;
+      bottom: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+
+      #line-navigation-who-we{
+        border-left: 1px solid $color-1;
+        height: 60px;
+      }
+      span{
+      padding-left: 15px;
+      font-size: 15px;
+      line-height: 16px;
+      max-width: 82px;
+      display: block;
+      text-align: left;
+      color: $color-1;
+    }
     }
   }
 </style>

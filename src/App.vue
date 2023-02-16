@@ -8,8 +8,8 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item"><router-link class="nav-link" :to="{name : 'Home'}" v-scroll>Home</router-link></li>
           <li class="nav-item"><router-link class="nav-link" :to="{name : 'About'}" v-scroll>About</router-link></li>
           <li class="nav-item"><router-link class="nav-link" :to="{name : 'Blog'}" v-scroll>Blog</router-link></li>
@@ -62,12 +62,34 @@ export default {
 }
 
 nav {
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  .nav-item {
 
-    &.router-link-exact-active {
-      color: #42b983;
+    .nav-link{
+      color: #2c3e50;
+      transition: all 0.3s;
+
+      &.router-link-exact-active {
+        display: inline-block;
+    background: linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    background: -moz-linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      }
+      &.router-link-active{
+        display: inline-block;
+    background: linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    background: -moz-linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      }
+
+      &:hover{
+        display: inline-block;
+    background: linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    background: -moz-linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      }
     }
   }
 }

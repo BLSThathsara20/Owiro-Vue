@@ -27,10 +27,40 @@
       </div>
     </section>
 
+    <section class="form-format">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6"></div>
+          <div class="col-12 col-md-6 col-lg-6">
+            <div class="form-wrapper">
+              <form @submit.prevent="submitForm">
+                <div>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" v-model="name" required>
+                </div>
+                <div>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" v-model="email" required>
+                </div>
+                <div>
+                  <label for="message">Message:</label>
+                  <textarea id="message" v-model="message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+                <div v-if="messageSent" class="success-message">Message sent!</div>
+                <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name: 'HomeView',
@@ -53,7 +83,35 @@ export default {
         description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
       },
     ],
+    name: '',
+    email: '',
+    message: '',
+    messageSent: false,
+    errorMessage: '',
     };
+  },
+  methods: {
+    submitForm() {
+      if (!this.name || !this.email || !this.message) {
+        this.errorMessage = 'Please fill in all fields.';
+        return;
+      }
+      axios.post('/send-email', {
+        name: this.name,
+        email: this.email,
+        message: this.message
+      })
+      .then(response => {
+        this.messageSent = true;
+        this.name = '';
+        this.email = '';
+        this.message = '';
+        this.errorMessage = '';
+      })
+      .catch(error => {
+        this.errorMessage = 'An error occurred while sending the message. Please try again later.';
+      });
+    }
   },
 }
 </script>
