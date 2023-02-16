@@ -1,8 +1,10 @@
 <template>
     <transition name="fade">
-      <div id="single-blog">
+      <div class="container">
+        <div id="single-blog">
         <h1>Blog {{ blog.title }}</h1>
         <p>{{ blog.content }}</p>
+      </div>
       </div>
     </transition>
   </template>

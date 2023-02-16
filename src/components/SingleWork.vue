@@ -1,8 +1,10 @@
 <template>
   <transition name="fade">
-    <div id="single-work">
+    <div class="container">
+      <div id="single-work">
       <h1>Work {{ work.name }}</h1>
       <p>{{ work.description }}</p>
+    </div>
     </div>
   </transition>
   </template>

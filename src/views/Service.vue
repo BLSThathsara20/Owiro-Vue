@@ -1,6 +1,8 @@
 <template>
     <div class="sevice">
-      <h1>This is an about page</h1>
+      <div class="container">
+        <h1 class="pt-5 pb-5">This is an Service page</h1>
+      </div>
     </div>
   </template>
   

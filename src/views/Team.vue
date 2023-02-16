@@ -9,43 +9,26 @@
     <section class="members">
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="../assets/image/team/Team-img-1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="col"  v-for="(member, index) in team" v-bind:key="index">
+            <div class="card h-100 border-0">
+              <div class="wrapper">
+                <img :src="member.image" class="card-img-top img-fluid" alt="{{ member.name }}">
+
+                <div class="sm" v-if="member.sm && (member.sm.fb || member.sm.twitter || member.sm.linkdin)">
+                  <ul>
+                    <li v-if="member.sm.fb"><a :href="member.sm.fb">Facebook</a></li>
+                    <li v-if="member.sm.twitter"><a :href="member.sm.twitter">Twitter</a></li>
+                    <li v-if="member.sm.linkdin"><a :href="member.sm.linkdin">LinkedIn</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title name">{{ member.name }}</h2>
+                <h3 class="card-text position">{{ member.position }}</h3>
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="../assets/image/team/Team-img-2.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a short card.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="../assets/image/team/Team-img-1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="../assets/image/team/Team-img-2.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div>
       </div>
     </section>
 
@@ -56,29 +39,48 @@
 
 export default {
   name: 'Team',
-  components: {
-    
-  },
   data() {
     return {
       team: [
         {
-          name: "Design",
-          content: "Ut enim ad minim veniam, quis nostrud exercitation ullamconisi ut aliquip ex ea commodo Duis aute irure euripidis ne mel, mel lobortis viverra nulla varius laoreet.",
-          isActive: true,
+          name: "Leo Dhouan",
+          position: "Team Lead",
+          image: require('@/assets/image/team/Team-img-2.jpg'),
+          sm: {
+            fb : "r",
+            twitter : "f",
+            linkdin: "f",
+          }
         },
         {
-          name: "Marketing",
-          content: "Tab 2 ContenLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod reus tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          name: "Bred Deen",
+          position: "Product Manager",
+          image: require('@/assets/image/team/Team-img-1.jpg'),
+          sm: {
+            fb : "",
+            twitter : "f",
+            linkdin: "",
+          }
         },
         {
-          name: "Devs",
-          content: `
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod reus tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-          </p>
-          <ul><li>Point</li></ul>
-          `,
+          name: "Bred Deen",
+          position: "Product Manager",
+          image: require('@/assets/image/team/Team-img-2.jpg'),
+          sm: {
+            fb : "",
+            twitter : "f",
+            linkdin: "",
+          }
+        },
+        {
+          name: "Bred Deen",
+          position: "Product Manager",
+          image: require('@/assets/image/team/Team-img-1.jpg'),
+          sm: {
+            fb : "",
+            twitter : "f",
+            linkdin: "",
+          }
         },
       ],
     };
@@ -97,7 +99,7 @@ $font-2 : 'Heebo', sans-serif;
 .team{
   .top{
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     .title{
       text-align: center;
       color: #9e9e9e;
@@ -114,6 +116,88 @@ $font-2 : 'Heebo', sans-serif;
   //Style Team Members Section
   .members{
     padding-bottom: 100px;
+
+    .card{
+      
+      &:hover{
+        .wrapper{
+          .sm{
+            background-color: #ffffffea;
+
+            ul{
+              li{
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .name{
+      font-family: $font-1;
+      font-weight: 600;
+      color: #000;
+      font-size: 30px;
+      line-height: 1.16em;
+      text-align: center;
+    }
+    .position{
+      font-family: $font-1;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #8a8a8a;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .wrapper{
+      position: relative;
+
+      .sm{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        ul{
+          display: flex;
+          gap: 18px;
+          flex-wrap: wrap;
+          padding: 0;
+
+          li{
+            list-style: none;
+            opacity: 0;
+            transition: all 0.3s;
+
+            a{
+              text-decoration: none;
+              color: #000;
+              font-size: 13px;
+              letter-spacing: 3px;
+              font-weight: 600;
+              text-transform: uppercase;
+              font-family: $font-1;
+              transition: all 0.3s;
+
+              &:hover{
+                background: linear-gradient(-120deg,rgba(92,195,238,.94),rgba(94,94,240,.94) 46%,rgba(202,151,210,.94));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+    }
   }
 }
 

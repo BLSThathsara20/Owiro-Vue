@@ -166,6 +166,7 @@
 // @ is an alias to /src
 import HeroSlider from '@/components/HeroSlider.vue'
 
+
 export default {
   name: 'HomeView',
   components: {
@@ -214,7 +215,6 @@ export default {
           require('@/assets/image/Main-home-how-it-01.jpg')
         ]
       },
-      // Add more works here
     ],
     services: [
       {
@@ -262,7 +262,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 //Variables
 $slider-line: linear-gradient(45deg,#5cc3ee 0,#5d91ef 29%,#5e5ef0 50%,#947be1 73%,#ca97d2 100%);
 $color-1: #000;

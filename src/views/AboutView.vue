@@ -7,7 +7,7 @@
     </section>
 
     <section class="who-we-are">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row d-flex align-items-center">
           <div class="col-12 col-md-8 col-lg-8">
             <div class="right-bg">
@@ -30,8 +30,31 @@
         </div>
       </div>
     </section>
-    <section class="brands">
+
+    <!-- Services Section -->
+    <section class="services">
       <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-4" v-for="(service, index) in services" v-bind:key="index">
+            <div class="content-wrapper">
+              <span class="bg-text">{{service.number}}</span>
+              <h4 class="title">
+                <a href="#">{{service.name}}</a>
+              </h4>
+              <p class="description">
+                {{service.description}}
+              </p>
+              <div class="action">
+                <a href="#">View More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="container-fluid">
         <div class="row d-flex align-items-center">
           <div class="col-12 col-md-6 col-lg-6">
             <div class="wrapper">
@@ -106,6 +129,23 @@ export default {
           `,
         },
       ],
+      services: [
+      {
+        name: 'Manage your data efficiently', 
+        description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '01',
+      },
+      {
+        name: 'Built with neat utility features', 
+        description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '02',
+      },
+      {
+        name: 'Futuristic interactive designs', 
+        description: 'Lorem ipsum dolor sit amet ridiculus consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Montes est massa. Cum sociis Theme natoq',
+        number: '03',
+      },
+    ],
     };
   },
   methods: {
@@ -216,6 +256,143 @@ $font-2 : 'Heebo', sans-serif;
     }
     }
   }
+
+  //Style Services Section
+  .services{
+    padding-top: 160px;
+    padding-bottom: 120px;
+    .content-wrapper{
+      position: relative;
+
+      .bg-text{
+        display: inline-block;
+        background: linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+        background: -moz-linear-gradient(-90deg,#5cc2ed 0,#5d62ee 50%,#c298d3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 230px;
+        letter-spacing: 0;
+        line-height: 1.2em;
+        font-weight: 400;
+        font-family: Syne,sans-serif;
+        z-index: -2;
+        position: absolute;
+        left: -68px;
+        top: -53%;
+        opacity: .2;
+
+        @media only screen and (max-width: 786px){
+            font-size: 180px;
+            left: 0;
+            top: -35%;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 120px;
+            left: 0;
+            top: -35%;
+        }
+      }
+      .title{
+        a{
+          text-decoration: none;
+          color: $color-1;
+          font-weight: 600;
+          font-size: 35px;
+
+          @media only screen and (max-width: 786px){
+            font-size: 28px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 22px;
+        }
+        }
+      }
+
+      .description{
+        font-size: 17px;
+        margin: 16px 60px 0 0;
+        font-family: $font-2;
+
+        @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+          @media only screen and (max-width: 576px){
+            font-size: 13px;
+        }
+      }
+
+      .action{
+        padding-top: 15px;
+
+        a{
+          cursor: pointer;
+          text-decoration: none;
+          color: $color-1;
+          font-size: 16px;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+
+          color: #000;
+          border: 0;
+          padding: 0 0 0 95px !important;
+          letter-spacing: .2em;
+          background-color: transparent;
+          transition: all .4s cubic-bezier(0,.68,.58,1);
+
+          font-family: Archivo,sans-serif;
+          font-size: 12px;
+          line-height: 1.33em;
+          letter-spacing: .2em;
+          font-weight: 500;
+          position: relative;
+          display: inline-flex;
+          vertical-align: middle;
+          width: auto;
+          margin: 0;
+          text-decoration: none;
+          text-transform: uppercase;
+          border-radius: 0;
+          outline: 0;
+          transition: color .2s ease-out,background-color .2s ease-out,border-color .2s ease-out;
+          padding: 17px 48px 15px 50px;
+          transition: all 0.5s;
+
+          @media only screen and (max-width: 786px){
+            font-size: 14px;
+        }
+
+          &::before{
+            content: '';
+            display: table;
+            table-layout: fixed;
+          }
+
+            &::after{
+
+              content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 80px;
+                height: 1px;
+                background-color: #57b8e0;
+                transition: width .4s cubic-bezier(0,.68,.58,1);
+            }
+
+            &:hover{
+              padding-left: 0px !important;
+              &::after{
+
+              content: '';
+                width: 0;
+              } 
+            }
+        }
+      }
+    }
+  }
+
   //Style Brands section
   .brands{
     position: relative;
