@@ -30,23 +30,23 @@
     <section class="form-format">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-6"></div>
+          <div class="col-12 col-md-6 col-lg-6">
+            <div class="location-wrap">
+              <div id="map" style="height: 400px; width: 400px"></div>
+            </div>
+          </div>
           <div class="col-12 col-md-6 col-lg-6">
             <div class="form-wrapper">
+              <h3 class="title">Get in touch</h3>
               <form @submit.prevent="submitForm">
-                <div>
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" v-model="name" required>
+                <div class="input-wrap">
+                  <input placeholder="Your Name" type="text" id="name" v-model="name" required>
+                  <input placeholder="Your Email" type="email" id="email" v-model="email" required>
                 </div>
                 <div>
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" v-model="email" required>
+                  <textarea placeholder="Your Message" id="message" v-model="message" required></textarea>
                 </div>
-                <div>
-                  <label for="message">Message:</label>
-                  <textarea id="message" v-model="message" required></textarea>
-                </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Send</button>
                 <div v-if="messageSent" class="success-message">Message sent!</div>
                 <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
             </form>
@@ -61,6 +61,7 @@
 
 <script>
 import axios from 'axios';
+import L from 'leaflet';
 
 export default {
   name: 'HomeView',
@@ -112,6 +113,17 @@ export default {
         this.errorMessage = 'An error occurred while sending the message. Please try again later.';
       });
     }
+  },
+  mounted() {
+    const map = L.map('map').setView([6.9271, 79.8612], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    L.marker([6.9271, 79.8612]).addTo(map)
+      .bindPopup('Colombo, Sri Lanka')
+      .openPopup();
   },
 }
 </script>
@@ -173,6 +185,106 @@ $font-2 : 'Heebo', sans-serif;
         }
       }
     }
+  }
+
+  //Style Form Section
+  .form-format{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    
+    .location-wrap{
+    overflow: hidden;
+
+    #map{
+      max-height: 400px;
+      max-width: 400px;
+    }
+  }
+
+  .form-wrapper{
+    .title{
+      font-family: $font-1;
+      font-weight: 600;
+      color: #000;
+      font-size: 30px;
+      line-height: 1.16em;
+      margin: 25px 0;
+    }
+
+    form{
+      padding-bottom: 40px;
+
+      .input-wrap{
+        display: flex;
+        gap: 15px;
+
+        input{
+        border: 1px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(70deg,#57b8e0,#5762e2,#be8ec6);
+        font-size: 17px;
+        line-height: 24px;
+        color: #a0a0a0;
+        font-weight: 400;
+        padding: 23px 30px;
+        margin-bottom: 8px;
+        width: 50%;
+      }
+      }
+
+      textarea{
+        height: 146px;
+        border: 1px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(70deg,#57b8e0,#5762e2,#be8ec6);
+        font-size: 17px;
+        line-height: 24px;
+        color: #a0a0a0;
+        font-weight: 400;
+        padding: 23px 30px;
+        margin-bottom: 8px;
+        width: 100%;
+        margin-top: 7px;
+      }
+
+      button{
+        font-size: 12px;
+        line-height: 1.33em;
+        letter-spacing: .2em;
+        font-weight: 500;
+        position: relative;
+        display: inline-flex;
+        vertical-align: middle;
+        width: auto;
+        margin: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 0;
+        outline: 0;
+        transition: color .2s ease-out,background-color .2s ease-out,border-color .2s ease-out;
+        padding: 17px 48px 15px 50px;
+        color: #000000;
+        background: #00000000;
+        border: 1px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(70deg,#57b8e0,#5762e2,#be8ec6);
+
+        &:hover{
+          color: #fff;
+        background: #5cc3ee;
+        background: linear-gradient(45deg,#5cc3ee 0,#5d91ef 29%,#5e5ef0 50%,#947be1 73%,#ca97d2 100%);
+        }
+      }
+
+      .success-message{
+        color: #328c27;
+      }
+      .error-message{
+        color: #de2828;
+      }
+    }
+  }
+
   }
 }
 

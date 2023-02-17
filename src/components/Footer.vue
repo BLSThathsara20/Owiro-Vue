@@ -1,4 +1,5 @@
 <template>
+  <div class="footer-sec">
     <div class="back-to-top">
         <div id="app" v-cloak>
             <transition name="fade">
@@ -62,9 +63,55 @@
 
     <footer>
         <div class="container">
-            <p>©Copyright 2023 <a href="https://owirodigital.com/">Owiro Digital</a> All Rights Reserved</p>
+            <div class="row content">
+              <div class="col-21">
+                <div class="logo-wrap">
+                  <img class="img-fluid logo" src="../assets/image/owiro.png" alt="logo" />
+                </div>
+              </div>
+              <div class="col-12 col-md-7 col-lg-7">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="contact-info" v-for="(info, index) in contact" :key="index">
+                      <ul>
+                        <li class="info" v-for="(value, key) in info" :key="key">{{ key }}: <a href="#">{{ value }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 col-lg-3">
+                    <div class="footer-primary">
+                      <ul>
+                        <li><a href="#">Main Home</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Landing</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 col-lg-3">
+                    <div class="footer-secondary">
+                      <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Our Process</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-5 col-lg-5">
+                <div class="newsletter">
+                  <h3 class="title">Our Newsletter</h3>
+                </div>
+              </div>
+            </div>
+            <div class="copyright">
+              <p>©Copyright {{ currentYear }} <a href="https://owirodigital.com/">Owiro Digital</a> All Rights Reserved</p>
+            </div>
         </div>
     </footer>
+  </div>
   </template>
   
   <script>
@@ -73,8 +120,16 @@
     name: 'App',
     data() {
       return {
+        currentYear: new Date().getFullYear(),
         scTimer: 0,
         scY: 0,
+        contact: [
+        {
+          address: '471/B/07 Wakwella Road, Kalegana, Galle',
+          phone: '+94 77 830 9497',
+          email: 'letstalk@owirodigital.com'
+        }
+        ],
       }
     },
     mounted() {
@@ -172,12 +227,91 @@ $font-2 : 'Heebo', sans-serif;
 
 footer{
     background-color: $color-1;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    p{
+    padding-top: 120px;
+    padding-bottom: 60px;
+
+    .content{
+      padding-bottom: 72px;
+    }
+
+    .copyright{
+      padding-bottom: 20px;
+      p{
         margin: 0;
         text-align: left;
         color: $color-2;
+
+        a{
+          text-decoration: none;
+          color: $color-2;
+          transition: all 0.3s;
+
+          &:hover{
+            color: #fff;
+          }
+        }
+    }
+    }
+
+    .logo-wrap{
+      .logo{
+        width: 180px;
+        padding-bottom: 30px;
+      }
+    }
+
+    ul{
+      padding-left: 0;
+      padding-top: 25px;
+
+      li{
+        list-style: none;
+        text-decoration: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-weight: 500;
+        color: #fff;
+
+        padding-bottom: 6px;
+
+        &.info{
+          text-decoration: none;
+          font-family: $font-2;
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: .1em;
+          font-weight: 500;
+          color: #fff;
+          a{
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            color: #fff;
+          }
+        }
+
+        a{
+          text-decoration: none;
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: .1em;
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+    }
+
+    .newsletter{
+      .title{
+        font-weight: 600;
+          color: #ffffff;
+          font-size: 30px;
+          line-height: 1.16em;
+          font-family: $font-1;
+      }
     }
 }
 </style>
