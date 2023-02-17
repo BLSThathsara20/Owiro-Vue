@@ -191,7 +191,7 @@ $font-2 : 'Heebo', sans-serif;
   .form-format{
     padding-top: 60px;
     padding-bottom: 60px;
-    
+
     .location-wrap{
     overflow: hidden;
 
@@ -277,9 +277,11 @@ $font-2 : 'Heebo', sans-serif;
       }
 
       .success-message{
+        padding-top: 15px;
         color: #328c27;
       }
       .error-message{
+        padding-top: 15px;
         color: #de2828;
       }
     }
