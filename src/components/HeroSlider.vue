@@ -10,7 +10,7 @@
             :class="{ active: index === currentSlide }"
           >
             <div class="row">
-              <div class="col-12 col-md-6 col-lg-6 hero-content">
+              <div class="col-12 col-md-6 col-lg-6 hero-content order-1 order-md-0">
                 <div class="carousel__slide-content">
                   <div class="wrapper">
                     <h2 class="sub-title">{{ slide.subTitle }}</h2>
@@ -22,7 +22,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 col-lg-6">
+              <div class="col-12 col-md-6 col-lg-6 order-0 order-md-1">
                 <div class="carousel__slide-image">
                   <img class="img-fluid" :src="slide.image" :alt="slide.title" />
                 </div>
@@ -122,6 +122,13 @@ $font-2: "Heebo", sans-serif;
   flex-direction: column;
   justify-content: center;
 
+  @media only screen and (max-width: 768px){
+    height: 90vh;
+        }
+        @media only screen and (max-width: 576px){
+          height: 70vh;
+        }
+
   &__track {
     display: flex;
     transition: transform 0.5s ease;
@@ -149,6 +156,7 @@ $font-2: "Heebo", sans-serif;
     }
 
     .carousel__slide-content {
+
       .wrapper {
         .sub-title {
           font-family: $font-1;
@@ -168,14 +176,19 @@ $font-2: "Heebo", sans-serif;
           font-weight: 600;
           font-size: 60px;
 
+          @media only screen and (max-width: 92px){
+            font-size: 42px;
+            line-height: 40px;
+          }
           @media only screen and (max-width: 786px){
             font-size: 36px;
             line-height: 40px;
-        }
+            display: table-header-group;
+          }
           @media only screen and (max-width: 576px){
             font-size: 28px;
             line-height: 30px;
-        }
+          }
         }
       }
       .action{
@@ -227,12 +240,20 @@ $font-2: "Heebo", sans-serif;
     }
 
     .carousel__slide-image{
+      @media only screen and (max-width: 768px){
+          display: flex;
+          justify-content: center;
+          padding-bottom: 40px;
+        }
       img{
         width: 80%;
 
         @media only screen and (max-width: 786px){
-          width: 60%;
+          width: 80%;
           text-align: center;
+        }
+        @media only screen and (max-width: 576px){
+          width: 50%;
         }
       }
     }

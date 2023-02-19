@@ -25,6 +25,7 @@
               <div class="card-body">
                 <h2 class="card-title name">{{ member.name }}</h2>
                 <h3 class="card-text position">{{ member.position }}</h3>
+                <h4 class="card-text mail"><a :href="'mailto:' + member.mail">{{ member.mail }}</a></h4>
               </div>
             </div>
           </div>
@@ -43,9 +44,10 @@ export default {
     return {
       team: [
         {
-          name: "Leo Dhouan",
-          position: "Team Lead",
-          image: require('@/assets/image/team/Team-img-2.jpg'),
+          name: "MAHEEPA",
+          position: "DIRECTOR / CO-FOUNDER",
+          mail: "maheepa@owirodigital.com",
+          image: require('@/assets/image/team/MAHEEPA.jpg'),
           sm: {
             fb : "r",
             twitter : "f",
@@ -53,9 +55,10 @@ export default {
           }
         },
         {
-          name: "Bred Deen",
-          position: "Product Manager",
-          image: require('@/assets/image/team/Team-img-1.jpg'),
+          name: "CHINTHAKA",
+          position: "DIRECTOR / CO-FOUNDER",
+          mail: "chinthaka@owirodigital.com",
+          image: require('@/assets/image/team/CHINTHAKA.jpg'),
           sm: {
             fb : "",
             twitter : "f",
@@ -63,9 +66,10 @@ export default {
           }
         },
         {
-          name: "Bred Deen",
-          position: "Product Manager",
-          image: require('@/assets/image/team/Team-img-2.jpg'),
+          name: "KALPANA",
+          position: "CHIEF MARKETING OFFICER",
+          mail: "kaplana@owirodigital.com",
+          image: require('@/assets/image/team/KALPANA.jpg'),
           sm: {
             fb : "",
             twitter : "f",
@@ -73,9 +77,21 @@ export default {
           }
         },
         {
-          name: "Bred Deen",
-          position: "Product Manager",
-          image: require('@/assets/image/team/Team-img-1.jpg'),
+          name: "MANUL",
+          position: "CHIEF INFORMATION OFFICER",
+          mail: "manul@owirodigital.com",
+          image: require('@/assets/image/team/MANUL.jpg'),
+          sm: {
+            fb : "",
+            twitter : "f",
+            linkdin: "",
+          }
+        },
+        {
+          name: "MEKALA",
+          position: "CHIEF BUSINESS OFFICER",
+          mail: "mekala@owirodigital.com",
+          image: require('@/assets/image/team/MEKHALA.jpg'),
           sm: {
             fb : "",
             twitter : "f",
@@ -100,6 +116,16 @@ $font-2 : 'Heebo', sans-serif;
   .top{
     padding-top: 60px;
     padding-bottom: 80px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 40px;
+    padding-bottom: 40px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
     .title{
       text-align: center;
       color: #9e9e9e;
@@ -110,12 +136,26 @@ $font-2 : 'Heebo', sans-serif;
     font-size: 60px;
     line-height: 1.1em;
     font-weight: 600;
+
+    @media only screen and (max-width: 768px){
+      font-size: 48px;
+    }
+    @media only screen and (max-width: 576px){
+      font-size: 36px;
+    }
     }
   }
 
   //Style Team Members Section
   .members{
     padding-bottom: 100px;
+
+    @media only screen and (max-width: 768px){
+      padding-bottom: 60px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-bottom: 30px;
+    }
 
     .card{
       
@@ -140,6 +180,10 @@ $font-2 : 'Heebo', sans-serif;
       font-size: 30px;
       line-height: 1.16em;
       text-align: center;
+
+      @media only screen and (max-width: 768px){
+      font-size: 22px;
+      }
     }
     .position{
       font-family: $font-1;
@@ -149,6 +193,27 @@ $font-2 : 'Heebo', sans-serif;
       color: #8a8a8a;
       font-weight: 600;
       text-align: center;
+      margin-bottom: 0;
+
+      @media only screen and (max-width: 768px){
+      font-size: 12px;
+      }
+    }
+    .mail{
+      text-align: center;
+      a{
+        text-decoration: none;
+        font-family: $font-2;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #8a8a8a;
+        font-weight: 600;
+
+        @media only screen and (max-width: 768px){
+      font-size: 12px;
+      }
+      }
     }
 
     .wrapper{

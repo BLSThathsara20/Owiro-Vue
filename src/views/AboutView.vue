@@ -169,6 +169,16 @@ $font-2 : 'Heebo', sans-serif;
   .top{
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 40px;
+    padding-bottom: 40px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
     .title{
       text-align: center;
       color: #9e9e9e;
@@ -179,6 +189,13 @@ $font-2 : 'Heebo', sans-serif;
     font-size: 60px;
     line-height: 1.1em;
     font-weight: 600;
+
+    @media only screen and (max-width: 768px){
+      font-size: 48px;
+    }
+    @media only screen and (max-width: 576px){
+      font-size: 36px;
+    }
     }
   }
 
@@ -186,10 +203,24 @@ $font-2 : 'Heebo', sans-serif;
   .who-we-are{
     position: relative;
     padding-top: 80px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 60px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 30px;
+    }
     //Left Side
     .wrapper{
       max-width: 360px;
       padding-left: 10%;
+
+      @media only screen and (max-width: 768px){
+        max-width: none;
+        padding-left: 0;
+        padding-top: 30px;
+      }
+
       .title{
       text-align: left;
 
@@ -207,8 +238,14 @@ $font-2 : 'Heebo', sans-serif;
         color: $color-1;
         font-size: 50px;
         line-height: 1.1em;
-
         margin-top: 10px;
+
+        @media only screen and (max-width: 768px){
+          font-size: 38px;
+        }
+        @media only screen and (max-width: 576px){
+          font-size: 32px;
+        }
       }
     }
     .content{
@@ -241,6 +278,10 @@ $font-2 : 'Heebo', sans-serif;
       display: flex;
       align-items: center;
 
+      @media only screen and (max-width: 576px){
+           display: none;
+        }
+
       #line-navigation-who-we{
         border-left: 1px solid $color-1;
         height: 60px;
@@ -261,6 +302,15 @@ $font-2 : 'Heebo', sans-serif;
   .services{
     padding-top: 160px;
     padding-bottom: 120px;
+
+        @media only screen and (max-width: 768px){
+          padding-top: 130px;
+          padding-bottom: 30px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 50px;
+          padding-bottom: 30px;
+        }
     .content-wrapper{
       position: relative;
 
@@ -398,10 +448,20 @@ $font-2 : 'Heebo', sans-serif;
     position: relative;
     padding-top: 80px;
     padding-bottom: 140px;
+
+        @media only screen and (max-width: 576px){
+          padding-top: 40px;
+        padding-bottom: 80px;
+        }
     //Left Side
     .wrapper{
       max-width: 360px;
       padding-left: 10%;
+
+      @media only screen and (max-width: 768px){
+        max-width: none;
+        padding-left: 0;
+      }
       .title{
       text-align: left;
 
@@ -419,13 +479,23 @@ $font-2 : 'Heebo', sans-serif;
         color: $color-1;
         font-size: 50px;
         line-height: 1.1em;
-
         margin-top: 10px;
+
+        @media only screen and (max-width: 768px){
+          font-size: 38px;
+        }
+        @media only screen and (max-width: 576px){
+          font-size: 32px;
+        }
       }
     }
     .content{
       text-align: left;
       margin-top: 22px;
+
+        @media only screen and (max-width: 576px){
+          padding-bottom: 30px;
+        }
 
       p{
         font-family: $font-2;

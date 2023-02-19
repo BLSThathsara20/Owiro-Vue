@@ -201,6 +201,18 @@ $font-2 : 'Heebo', sans-serif;
         align-items: center;
         gap: 20px;
 
+        @media only screen and (max-width: 768px){
+          padding-left: 8%;
+          padding-top: 80px;
+          padding-bottom: 80px;
+        }
+
+        @media only screen and (max-width: 576px){
+          padding-left: 0;
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+
         .content{
           .title{
             font-weight: 600;
@@ -208,6 +220,15 @@ $font-2 : 'Heebo', sans-serif;
             font-size: 40px;
             line-height: 1.05em;
             word-break: break-word;
+
+
+            @media only screen and (max-width: 768px){
+              font-size: 32px;
+            }
+
+            @media only screen and (max-width: 576px){
+              font-size: 30px;
+            }
           }
           p{
             margin-top: 20px;
@@ -220,6 +241,15 @@ $font-2 : 'Heebo', sans-serif;
         .action{
           a{
             padding-right: 12px;
+
+            svg{
+              @media only screen and (max-width: 768px){
+                width: 62px;
+              }
+              @media only screen and (max-width: 576px){
+                width: 52px;
+              }
+            }
           }
         }
       }

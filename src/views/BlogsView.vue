@@ -29,7 +29,7 @@
 
     <section class="blog-archive">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-1 g-4 pb-5">
+        <div class="row row-cols-1 row-cols-md-1 g-4 pb-3 pb-md-4 pb-lg-5">
           <div class="col" v-for="(blog, index) in paginatedBlogs" :key="index">
             <div class="card single-blog border-0">
               <router-link :to="`/blog/${(currentPage - 1) * itemsPerPage + index + 1}`">
@@ -216,7 +216,14 @@ $font-2 : 'Heebo', sans-serif;
     padding-top: 60px;
     padding-bottom: 72px;
 
+    @media only screen and (max-width: 576px){
+          display: none;
+        }
+
     .carousel{
+      @media only screen and (max-width: 768px){
+        height: 60vh;
+        }
       .carousel-inner{
         .carousel-item{
 
@@ -256,8 +263,23 @@ $font-2 : 'Heebo', sans-serif;
   //Style Blog Archive
   .blog-archive{
     padding-bottom: 80px;
+
+    @media only screen and (max-width: 768px){
+      padding-bottom: 40px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-bottom: 5px;
+          padding-top: 15px;
+        }
     .single-blog{
       padding-bottom: 40px;
+
+      @media only screen and (max-width: 768px){
+        padding-bottom: 20px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-bottom: 5px;
+        }
 
       .card-body{
         padding-left: 0;
@@ -282,6 +304,13 @@ $font-2 : 'Heebo', sans-serif;
             color: #000;
             font-size: 50px;
             line-height: 1.1em;
+
+            @media only screen and (max-width: 768px){
+              font-size: 38px;
+            }
+            @media only screen and (max-width: 576px){
+              font-size: 32px;
+            }
           }
         }
       }
@@ -294,6 +323,15 @@ $font-2 : 'Heebo', sans-serif;
       text-align: center;
       background-color: #ddd9ca;
       background-image: linear-gradient(-120deg,rgba(202,151,210,.94),rgba(94,94,240,.94) 46%,rgba(92,195,238,.94));
+
+      @media only screen and (max-width: 768px){
+        padding: 100px 60px;
+        margin-bottom: 35px;
+      }
+      @media only screen and (max-width: 576px){
+        padding: 70px 35px;
+        margin-bottom: 15px;
+      }
       .wrap{
         .content{
           .title{
@@ -305,6 +343,10 @@ $font-2 : 'Heebo', sans-serif;
             font-size: 13px;
             text-transform: uppercase;
             color: #fff;
+
+            @media only screen and (max-width: 576px){
+              font-size: 10px;
+            }
           }
 
           .info{
@@ -316,6 +358,17 @@ $font-2 : 'Heebo', sans-serif;
 
             padding-top: 30px;
             padding-bottom: 30px;
+
+            @media only screen and (max-width: 768px){
+              font-size: 32px;
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+            @media only screen and (max-width: 576px){
+              font-size: 26px;
+              padding-top: 15px;
+              padding-bottom: 15px;
+            }
           }
 
           .author{
@@ -323,6 +376,10 @@ $font-2 : 'Heebo', sans-serif;
             font-size: 17px;
             margin: 45px 0 0;
             color: #fff;
+
+            @media only screen and (max-width: 576px){
+              font-size: 14px;
+            }
           }
         }
       }

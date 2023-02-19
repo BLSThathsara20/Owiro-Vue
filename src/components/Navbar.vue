@@ -113,7 +113,7 @@ export default {
 </script>
   
   
-  <style lang="scss" scoped>
+  <style lang="scss">
 //Variables
 $font-1: "Syne", sans-serif;
 $font-2: "Heebo", sans-serif;
@@ -133,72 +133,86 @@ nav {
         display: flex;
         align-items: center;
 
+        @media only screen and (max-width: 768px){
+          padding-top: 20px;
+        }
+
         .nav-item {
-    .nav-link {
-      font-family: $font-2;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      line-height: 1.23em;
-      color: #1b1b1b;
-      font-weight: 600;
-      transition: all 0.3s;
+          @media only screen and (max-width: 768px){
+            padding: 0 !important;
+          }
 
-      padding-left: 25px !important;
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
+          .nav-link {
+            font-family: $font-2;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            line-height: 1.23em;
+            color: #1b1b1b;
+            font-weight: 600;
+            transition: all 0.3s;
 
-      &.router-link-exact-active {
-        display: inline-block;
-        background: linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        background: -moz-linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      &.router-link-active {
-        background: linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        background: -moz-linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+            padding-left: 25px !important;
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
 
-      &:hover {
-        background: linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        background: -moz-linear-gradient(
-          -90deg,
-          #5cc2ed 0,
-          #5d62ee 50%,
-          #c298d3 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
+            @media only screen and (max-width: 768px){
+              padding-left: 0px !important;
+              padding-bottom: 8px !important;
+            padding-top: 8px !important;
+            }
+
+            &.router-link-exact-active {
+              display: inline-block;
+              background: linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              background: -moz-linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+            &.router-link-active {
+              background: linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              background: -moz-linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            &:hover {
+              background: linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              background: -moz-linear-gradient(
+                -90deg,
+                #5cc2ed 0,
+                #5d62ee 50%,
+                #c298d3 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
   }
     }
 }

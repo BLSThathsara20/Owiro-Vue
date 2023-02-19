@@ -140,6 +140,15 @@ $font-2 : 'Heebo', sans-serif;
   .top{
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 40px;
+    padding-bottom: 40px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
     .title{
       text-align: center;
       color: #9e9e9e;
@@ -150,6 +159,13 @@ $font-2 : 'Heebo', sans-serif;
     font-size: 60px;
     line-height: 1.1em;
     font-weight: 600;
+
+    @media only screen and (max-width: 768px){
+      font-size: 48px;
+    }
+    @media only screen and (max-width: 576px){
+      font-size: 36px;
+    }
     }
   }
 
@@ -157,6 +173,15 @@ $font-2 : 'Heebo', sans-serif;
   .info{
     padding-top: 40px;
     padding-bottom: 40px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 20px;
+    padding-bottom: 20px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 5px;
+    padding-bottom: 5px;
+    }
     .content-wrapper{
       .title{
         a{
@@ -164,6 +189,13 @@ $font-2 : 'Heebo', sans-serif;
           color: $color-1;
           font-weight: 600;
           font-size: 35px;
+
+          @media only screen and (max-width: 768px){
+            font-size: 32px;
+          }
+          @media only screen and (max-width: 576px){
+            font-size: 24px;
+          }
         }
       }
 
@@ -171,6 +203,14 @@ $font-2 : 'Heebo', sans-serif;
         font-size: 17px;
         margin: 16px 60px 0 0;
         font-family: $font-2;
+
+        @media only screen and (max-width: 768px){
+            font-size: 15px;
+            margin-right: 0;
+          }
+          @media only screen and (max-width: 576px){
+            font-size: 13px;
+          }
       }
 
       .action{
@@ -182,6 +222,10 @@ $font-2 : 'Heebo', sans-serif;
           font-size: 16px;
           letter-spacing: 1.5px;
           text-transform: uppercase;
+
+          @media only screen and (max-width: 768px){
+            font-size: 14px;
+          }
         }
       }
     }
@@ -191,6 +235,15 @@ $font-2 : 'Heebo', sans-serif;
   .form-format{
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 40px;
+    padding-bottom: 40px;
+    }
+    @media only screen and (max-width: 576px){
+      padding-top: 20px;
+    padding-bottom: 20px;
+    }
 
     .location-wrap{
     overflow: hidden;
@@ -209,6 +262,13 @@ $font-2 : 'Heebo', sans-serif;
       font-size: 30px;
       line-height: 1.16em;
       margin: 25px 0;
+
+      @media only screen and (max-width: 768px){
+        font-size: 28px;
+      }
+      @media only screen and (max-width: 576px){
+        font-size: 22px;
+      }
     }
 
     form{
@@ -217,6 +277,10 @@ $font-2 : 'Heebo', sans-serif;
       .input-wrap{
         display: flex;
         gap: 15px;
+
+        @media only screen and (max-width: 768px){
+          display: block;
+        }
 
         input{
         border: 1px solid;
@@ -229,6 +293,16 @@ $font-2 : 'Heebo', sans-serif;
         padding: 23px 30px;
         margin-bottom: 8px;
         width: 50%;
+
+        @media only screen and (max-width: 768px){
+          font-size: 14px;
+          padding: 18px 20px;
+          width: 100%;
+        }
+        @media only screen and (max-width: 576px){
+          padding: 12px 15px;
+          width: 100%;
+        }
       }
       }
 
@@ -245,6 +319,15 @@ $font-2 : 'Heebo', sans-serif;
         margin-bottom: 8px;
         width: 100%;
         margin-top: 7px;
+
+        @media only screen and (max-width: 768px){
+          font-size: 14px;
+          padding: 18px 20px;
+        }
+        @media only screen and (max-width: 576px){
+          padding: 12px 15px;
+          width: 100%;
+        }
       }
 
       button{
@@ -268,6 +351,13 @@ $font-2 : 'Heebo', sans-serif;
         border: 1px solid;
         border-image-slice: 1;
         border-image-source: linear-gradient(70deg,#57b8e0,#5762e2,#be8ec6);
+
+        @media only screen and (max-width: 768px){
+          padding: 18px 20px;
+        }
+        @media only screen and (max-width: 576px){
+          padding: 10px 15px;
+        }
 
         &:hover{
           color: #fff;

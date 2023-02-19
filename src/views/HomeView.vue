@@ -144,7 +144,7 @@
           </div>
           <div class="col-12 col-md-8 col-lg-8">
             <div class="row">
-              <div class="col-12 col-md-4 col-lg-4" v-for="(partner, index) in partners" v-bind:key="index">
+              <div class="col-6 col-md-4 col-lg-4" v-for="(partner, index) in partners" v-bind:key="index">
                 <div class="logo-wrapper">
                   <h5 class="name"><a href="#">{{partner.name}}</a></h5>
                   <img class="img-fluid" v-bind:src="partner.logo" alt="">
@@ -262,7 +262,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //Variables
 $slider-line: linear-gradient(45deg,#5cc3ee 0,#5d91ef 29%,#5e5ef0 50%,#947be1 73%,#ca97d2 100%);
 $color-1: #000;
@@ -349,7 +349,7 @@ $font-2 : 'Heebo', sans-serif;
     background: $slider-line;
     z-index: 99;
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 576px){
       display: none;
     }
   }
@@ -358,6 +358,10 @@ $font-2 : 'Heebo', sans-serif;
     top: 90vh;
     left: 40px;
     z-index: 100;
+
+    @media only screen and (max-width: 576px){
+           display: none;
+        }
 
     #line-navigation-keep-scroll{
     border-left: 1px solid $color-1;
@@ -377,10 +381,20 @@ $font-2 : 'Heebo', sans-serif;
     position: relative;
     padding-top: 80px;
     padding-bottom: 80px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 60px;
+    padding-bottom: 60px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 40px;
+    padding-bottom: 40px;
+        }
     //Left Side
     .wrapper{
       max-width: 360px;
       padding-left: 10%;
+      
       .title{
       text-align: left;
 
@@ -446,6 +460,10 @@ $font-2 : 'Heebo', sans-serif;
       display: flex;
       align-items: center;
 
+      @media only screen and (max-width: 576px){
+           display: none;
+        }
+
       #line-navigation-who-we{
         border-left: 1px solid $color-1;
         height: 60px;
@@ -471,15 +489,31 @@ $font-2 : 'Heebo', sans-serif;
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 60px;
+    padding-bottom: 60px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 40px;
+    padding-bottom: 40px;
+        }
     .img-wrapper{
       overflow: hidden;
       img{
         width: 80%;
         scale: 1;
+
+        @media only screen and (max-width: 576px){
+          width: 100%;
+        }
       }
     }
 
     .wrapper{
+      @media only screen and (max-width: 576px){
+      padding-top: 30px;
+    }
       .top{
         text-align: left;
         .sub-title{
@@ -500,22 +534,33 @@ $font-2 : 'Heebo', sans-serif;
           font-weight: 600;
 
           @media only screen and (max-width: 786px){
-            font-size: 34px;
+            font-size: 32px;
         }
           @media only screen and (max-width: 576px){
-            font-size: 26px;
+            font-size: 24px;
         }
         }
       }
     }
     .work-list{
       padding-top: 40px;
+
+      @media only screen and (max-width: 576px){
+      padding-left: 0;
+    }
         .work-item{
           list-style: none;
           position: relative;
           margin-bottom: 40px;
 
           padding-left: 38px;
+
+          @media only screen and (max-width: 768px){
+          margin-bottom: 20px;
+        }
+        @media only screen and (max-width: 576px){
+          margin-bottom: 12px;
+        }
           
           &:hover{
             a{
@@ -588,6 +633,10 @@ $font-2 : 'Heebo', sans-serif;
       display: flex;
       align-items: center;
 
+          @media only screen and (max-width: 576px){
+           display: none;
+        }
+
       #line-navigation-who-we{
         border-left: 1px solid $color-1;
         height: 60px;
@@ -615,8 +664,21 @@ $font-2 : 'Heebo', sans-serif;
   .services{
     padding-top: 160px;
     padding-bottom: 120px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 80px;
+    padding-bottom: 25px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 30px;
+    padding-bottom: 15px;
+        }
     .content-wrapper{
       position: relative;
+
+      @media only screen and (max-width: 576px){
+          padding-bottom: 20px;
+        }
 
       .bg-text{
         display: inline-block;
@@ -670,6 +732,7 @@ $font-2 : 'Heebo', sans-serif;
 
         @media only screen and (max-width: 786px){
             font-size: 14px;
+            margin-right: 0;
         }
           @media only screen and (max-width: 576px){
             font-size: 13px;
@@ -751,6 +814,15 @@ $font-2 : 'Heebo', sans-serif;
   .articles{
     padding-top: 80px;
     padding-bottom: 80px;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 60px;
+    padding-bottom: 60px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 40px;
+    padding-bottom: 40px;
+        }
     .wrapper{
       position: relative;
       height: 70vh;
@@ -758,6 +830,13 @@ $font-2 : 'Heebo', sans-serif;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+
+      @media only screen and (max-width: 768px){
+        height: 50vh;
+        }
+        @media only screen and (max-width: 576px){
+          height: 40vh;
+        }
 
       .overlay{
         position: absolute;
@@ -795,7 +874,7 @@ $font-2 : 'Heebo', sans-serif;
             font-size: 34px;
         }
           @media only screen and (max-width: 576px){
-            font-size: 22px;
+            font-size: 24px;
         }
 
         }
@@ -808,8 +887,20 @@ $font-2 : 'Heebo', sans-serif;
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
+
+    @media only screen and (max-width: 768px){
+      padding-top: 60px;
+    padding-bottom: 60px;
+        }
+        @media only screen and (max-width: 576px){
+          padding-top: 40px;
+    padding-bottom: 40px;
+        }
     .wrapper{
       padding-bottom: 80px;
+      @media only screen and (max-width: 576px){
+    padding-bottom: 40px;
+        }
       span{
         font-size: 13px;
         letter-spacing: 4px;
@@ -868,6 +959,10 @@ $font-2 : 'Heebo', sans-serif;
       justify-content: center;
       align-items: center;
 
+      @media only screen and (max-width: 768px){
+          padding-top: 20px;
+        }
+
       &:hover{
         .name{
           opacity: 1;
@@ -883,6 +978,10 @@ $font-2 : 'Heebo', sans-serif;
         justify-content: center;
         transition: all 0.3s;
         opacity: 0;
+
+        @media only screen and (max-width: 768px){
+          opacity: 1;
+        }
         a{
           text-decoration: none;
           font-weight: 400;
@@ -906,6 +1005,10 @@ $font-2 : 'Heebo', sans-serif;
       z-index: 100;
       display: flex;
       align-items: center;
+
+      @media only screen and (max-width: 576px){
+           display: none;
+        }
 
       #line-navigation-who-we{
         border-left: 1px solid $color-1;
