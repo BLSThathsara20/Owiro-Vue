@@ -24,7 +24,7 @@
               </div>
               <div class="col-12 col-md-6 col-lg-6 order-0 order-md-1">
                 <div class="carousel__slide-image">
-                  <img class="img-fluid" :src="slide.image" :alt="slide.title" />
+                  <img class="img-fluid ratio ratio-4x3" :src="slide.image" :alt="slide.title" />
                 </div>
               </div>
             </div>

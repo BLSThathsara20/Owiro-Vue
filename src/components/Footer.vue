@@ -4,10 +4,9 @@
         <div id="app" v-cloak>
             <transition name="fade">
                 <div id="pagetop" class="fixed right-0 bottom-0" v-show="scY > 300" @click="toTop">
-                    <span>
+                    <span class="top">
                         Back to top
                     </span>
-                    <div class="line"></div>
                 </div>
             </transition>
         </div>
@@ -103,6 +102,12 @@
               <div class="col-12 col-md-5 col-lg-5">
                 <div class="newsletter">
                   <h3 class="title">Our Newsletter</h3>
+                  <div class="form-wrap">
+                    <form @submit.prevent="sendEmail">
+                      <input placeholder="Email" type="email" id="email" v-model="email">
+                      <button type="submit">Subscribe</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -120,6 +125,7 @@
     name: 'App',
     data() {
       return {
+        email: '',
         currentYear: new Date().getFullYear(),
         scTimer: 0,
         scY: 0,
@@ -168,14 +174,31 @@ $font-2 : 'Heebo', sans-serif;
     #app{
         transform: rotate(-90deg);
         position: fixed;
-        bottom: 80px;
+        bottom: 220px;
         right: 30px;
         cursor: pointer;
 
-        .line{
+        @media only screen and (max-width: 576px){
+          right: -30px;
+        }
+
+        .top{
+          font-size: 12px;
+          letter-spacing: 2px;
+          font-weight: 500;
+          font-family: Archivo,sans-serif;
+          text-transform: uppercase;
+
+          &::after{
+            content: '';
+            position: absolute;
+            top: 11px;
+            right: calc(100% + 16px);
             width: 80px;
             height: 1px;
             background-color: #9f9f9f;
+            transition: all .4s cubic-bezier(0,.68,.58,1),opacity .3s ease;
+          }
         }
     }
 }
@@ -330,6 +353,11 @@ footer{
           letter-spacing: .1em;
           font-weight: 500;
           color: #fff;
+
+          &:hover{
+            color: #fff;
+              opacity: .6;
+            }
         }
       }
     }
@@ -341,6 +369,54 @@ footer{
           font-size: 30px;
           line-height: 1.16em;
           font-family: $font-1;
+      }
+
+      .form-wrap{
+        padding-top: 18px;
+        input{
+          background: 0 0;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          padding-left: 0;
+          border-color: #315361;
+          color: #6e6e6e;
+          border-bottom: 1px solid #315361!important;
+          border-image-source: none;
+          border-image-slice: 0;
+          width: 100%;
+          padding: 10px 20px 10px 0;
+
+          &:focus{
+            outline: none;
+          }
+        }
+        button{
+          font-family: $font-2;
+          letter-spacing: 4px;
+          font-size: 12px;
+          line-height: 1.33em;
+          color: #fff;
+          font-weight: 500;
+          text-transform: uppercase;
+          background: none;
+          border: none;
+          display: block;
+          padding-top: 22px;
+          padding-left: 95px;
+          position: relative;
+
+          &::after{
+            content: '';
+            position: absolute;
+            top: 75%;
+            left: 0;
+            width: 80px;
+            height: 1px;
+            background-color: #ffffff;
+            transition: width .4s cubic-bezier(0,.68,.58,1);
+          }
+        }
       }
     }
 }

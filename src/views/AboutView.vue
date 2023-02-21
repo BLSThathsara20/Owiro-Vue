@@ -55,8 +55,8 @@
 
     <section class="brands">
       <div class="container-fluid">
-        <div class="row d-flex align-items-center">
-          <div class="col-12 col-md-6 col-lg-6">
+        <div class="row d-flex">
+          <div class="col-12 col-md-6 col-lg-6 order-1 order-md-0">
             <div class="wrapper">
               <div class="title">
               <span>WHO WE ARE</span>
@@ -68,7 +68,7 @@
                 <ul class="nav nav-tabs">
                   <li class="nav-item" v-for="tab in tabs" :key="tab.id">
                     <span
-                      class="nav-link"
+                      class="nav-link border-0"
                       :class="{ active: tab.isActive }"
                       href="#"
                       @click="selectTab(tab)"
@@ -87,7 +87,7 @@
             </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-6">
+          <div class="col-12 col-md-6 col-lg-6 order-0 order-md-1">
             <div class="right-bg">
               <img class="img-fluid" src="../assets/image/about/About-us-img-2.jpg" alt="image">
             </div>
@@ -261,13 +261,12 @@ $font-2 : 'Heebo', sans-serif;
 
     //Right Side
     .right-bg{
-      background-image: url("../assets/image/Main-home-img-4.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
 
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .section-who-we-mark{
@@ -303,16 +302,20 @@ $font-2 : 'Heebo', sans-serif;
     padding-top: 160px;
     padding-bottom: 120px;
 
-        @media only screen and (max-width: 768px){
-          padding-top: 130px;
-          padding-bottom: 30px;
+    @media only screen and (max-width: 768px){
+      padding-top: 80px;
+    padding-bottom: 25px;
         }
         @media only screen and (max-width: 576px){
-          padding-top: 50px;
-          padding-bottom: 30px;
+          padding-top: 30px;
+    padding-bottom: 15px;
         }
     .content-wrapper{
       position: relative;
+
+      @media only screen and (max-width: 768px){
+          padding-bottom: 110px;
+        }
 
       .bg-text{
         display: inline-block;
@@ -332,16 +335,21 @@ $font-2 : 'Heebo', sans-serif;
         top: -53%;
         opacity: .2;
 
+        @media only screen and (max-width: 992px){
+            left: 0;
+            top: -36%;
+        }
+        @media only screen and (max-width: 576px){
+            left: 0;
+            top: -36%;
+        }
+
         @media only screen and (max-width: 786px){
-            font-size: 180px;
+            font-size: 230px;
             left: 0;
-            top: -35%;
+            top: -42%;
         }
-          @media only screen and (max-width: 576px){
-            font-size: 120px;
-            left: 0;
-            top: -35%;
-        }
+          
       }
       .title{
         a{
@@ -351,10 +359,7 @@ $font-2 : 'Heebo', sans-serif;
           font-size: 35px;
 
           @media only screen and (max-width: 786px){
-            font-size: 28px;
-        }
-          @media only screen and (max-width: 576px){
-            font-size: 22px;
+            font-size: 30px;
         }
         }
       }
@@ -365,10 +370,11 @@ $font-2 : 'Heebo', sans-serif;
         font-family: $font-2;
 
         @media only screen and (max-width: 786px){
-            font-size: 14px;
+            font-size: 17px;
+            margin-right: 0;
         }
           @media only screen and (max-width: 576px){
-            font-size: 13px;
+            font-size: 16px;
         }
       }
 
@@ -450,20 +456,27 @@ $font-2 : 'Heebo', sans-serif;
     padding-bottom: 140px;
 
         @media only screen and (max-width: 576px){
-          padding-top: 40px;
-        padding-bottom: 80px;
+          padding-top: 0;
+        padding-bottom: 40px;
         }
     //Left Side
     .wrapper{
-      max-width: 360px;
       padding-left: 10%;
+      padding-right: 10%;
+      padding-top: 100px;
 
       @media only screen and (max-width: 768px){
         max-width: none;
         padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
       }
       .title{
       text-align: left;
+
+      @media only screen and (max-width: 576px){
+        padding-top: 30px;
+      }
 
       span{
         font-size: 13px;
@@ -501,12 +514,45 @@ $font-2 : 'Heebo', sans-serif;
         font-family: $font-2;
         font-size: 18px;
       }
+
+      .nav-tabs{
+        gap: 40px;
+        .nav-item{
+          padding-bottom: 9px;
+          .nav-link{
+            font-family: $font-1;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 1.25em;
+            position: relative;
+            display: block;
+            padding: 0;
+            color: #000000c1;
+            transition: color .2s ease-out,background-color .2s ease-out;
+            font-weight: 600;
+
+            &.active{
+              color: #000;
+                &::after{
+                content: '';
+                width: 100%;
+                left: 0;
+                height: 1px;
+                position: absolute;
+                bottom: -9px;
+                background-color: #000;
+                transition: width .48s cubic-bezier(.77,0,.175,1);
+              }
+            }
+            
+          }
+        }
+      }
     }
     }
 
     //Right Side
     .right-bg{
-      background-image: url("../assets/image/Main-home-img-4.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;

@@ -46,12 +46,12 @@
     <section class="how-it-works">
       <div class="container">
         <div class="row d-flex align-items-center">
-          <div class="col-12 col-md-6 col-lg-6">
+          <div class="col-12 col-md-6 col-lg-6 order-1 order-md-0">
             <div class="img-wrapper">
               <img class="img-fluid" :src="works[currentImageIndex].src" />
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-6">
+          <div class="col-12 col-md-6 col-lg-6 order-0 order-md-1">
             <div class="wrapper">
               <div class="top">
                 <span class="sub-title">how it works</span>
@@ -358,6 +358,8 @@ $font-2 : 'Heebo', sans-serif;
     top: 90vh;
     left: 40px;
     z-index: 100;
+    display: flex;
+    align-items: center;
 
     @media only screen and (max-width: 576px){
            display: none;
@@ -365,6 +367,7 @@ $font-2 : 'Heebo', sans-serif;
 
     #line-navigation-keep-scroll{
     border-left: 1px solid $color-1;
+    height: 60px;
     }
     span{
       padding-left: 15px;
@@ -394,6 +397,11 @@ $font-2 : 'Heebo', sans-serif;
     .wrapper{
       max-width: 360px;
       padding-left: 10%;
+
+      @media only screen and (max-width: 768px){
+        max-width: none;
+      padding-left: 0;
+      }
       
       .title{
       text-align: left;
@@ -450,6 +458,16 @@ $font-2 : 'Heebo', sans-serif;
 
       display: flex;
       justify-content: center;
+
+      @media only screen and (max-width: 576px){
+        padding-top: 15px;
+      }
+
+      img{
+        @media only screen and (max-width: 576px){
+          height: 50vh;
+        }
+      }
     }
 
     .section-who-we-mark{
@@ -495,17 +513,25 @@ $font-2 : 'Heebo', sans-serif;
     padding-bottom: 60px;
         }
         @media only screen and (max-width: 576px){
-          padding-top: 40px;
+          padding-top: 0px;
     padding-bottom: 40px;
         }
     .img-wrapper{
       overflow: hidden;
+
+      @media only screen and (max-width: 768px){
+          display: flex;
+          justify-content: center;
+
+          padding-top: 22px;
+          padding-top: 35px;
+        }
       img{
         width: 80%;
         scale: 1;
 
         @media only screen and (max-width: 576px){
-          width: 100%;
+          width: 75%;
         }
       }
     }
@@ -676,8 +702,8 @@ $font-2 : 'Heebo', sans-serif;
     .content-wrapper{
       position: relative;
 
-      @media only screen and (max-width: 576px){
-          padding-bottom: 20px;
+      @media only screen and (max-width: 768px){
+          padding-bottom: 110px;
         }
 
       .bg-text{
@@ -698,16 +724,21 @@ $font-2 : 'Heebo', sans-serif;
         top: -53%;
         opacity: .2;
 
+        @media only screen and (max-width: 992px){
+            left: 0;
+            top: -36%;
+        }
+        @media only screen and (max-width: 576px){
+            left: 0;
+            top: -36%;
+        }
+
         @media only screen and (max-width: 786px){
-            font-size: 180px;
+            font-size: 230px;
             left: 0;
-            top: -35%;
+            top: -42%;
         }
-          @media only screen and (max-width: 576px){
-            font-size: 120px;
-            left: 0;
-            top: -35%;
-        }
+          
       }
       .title{
         a{
@@ -717,10 +748,7 @@ $font-2 : 'Heebo', sans-serif;
           font-size: 35px;
 
           @media only screen and (max-width: 786px){
-            font-size: 28px;
-        }
-          @media only screen and (max-width: 576px){
-            font-size: 22px;
+            font-size: 30px;
         }
         }
       }
@@ -731,11 +759,11 @@ $font-2 : 'Heebo', sans-serif;
         font-family: $font-2;
 
         @media only screen and (max-width: 786px){
-            font-size: 14px;
+            font-size: 17px;
             margin-right: 0;
         }
           @media only screen and (max-width: 576px){
-            font-size: 13px;
+            font-size: 16px;
         }
       }
 
