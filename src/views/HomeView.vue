@@ -705,6 +705,9 @@ $font-2 : 'Heebo', sans-serif;
       @media only screen and (max-width: 768px){
           padding-bottom: 110px;
         }
+      @media only screen and (max-width: 576px){
+          padding-bottom: 90px;
+        }
 
       .bg-text{
         display: inline-block;
@@ -848,8 +851,8 @@ $font-2 : 'Heebo', sans-serif;
     padding-bottom: 60px;
         }
         @media only screen and (max-width: 576px){
-          padding-top: 40px;
-    padding-bottom: 40px;
+          padding-top: 0px;
+          padding-bottom: 40px;
         }
     .wrapper{
       position: relative;
@@ -1006,6 +1009,7 @@ $font-2 : 'Heebo', sans-serif;
         justify-content: center;
         transition: all 0.3s;
         opacity: 0;
+        width: 100%;
 
         @media only screen and (max-width: 768px){
           opacity: 1;
